@@ -2,3 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color: #0f172a;
+  background: #eef6f2;
+  font-family: Aptos, "Segoe UI Variable Text", "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.mermaid-diagram svg {
+  display: block;
+  height: auto;
+  min-width: 100%;
+}
+
