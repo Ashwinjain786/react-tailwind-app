@@ -85,13 +85,14 @@ flowchart TD
 
     %% --- 6. DATA LAYER ---
     subgraph Databases ["💾 Data Persistence"]
-        J3 --> K1[(Scheduler DB)]
-        M3 --> K2[(Project DB)]
-        Q --> K1 & K2
-        K1 & K2 --> DB[(Central Database)]
+        J3 --> DB[(Single Database for All Centers)]
+        M3 --> DB
+        N2 --> DB
+        Q --> DB
         DB -.-> E & I1 & I2 & I3
-        K1 --> D2
-        K2 --> D3
+        DB --> D2
+        DB --> D3
+        DB --> D4
     end
 
     %% --- RETURNS ---
@@ -102,7 +103,7 @@ flowchart TD
     class A,B,C,D1,D2,D3,D4 ui;
     class E,F,G1,G2,H,T,L1 ai;
     class I1,I2,I3,J1,J2,J3,M1,M2,M3,N1,N2,N3,R engine;
-    class K1,K2,DB data;
+    class DB data;
     class O,P,Q,S action;
 `;
 
@@ -182,7 +183,7 @@ export default function App() {
           <div className="max-w-2xl">
             <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">Platform Architecture</h2>
             <p className="mt-3 text-lg text-slate-500 leading-relaxed">
-              A high-level view of how user requests flow through our AI routing system to specialized engines. Use the diagram below to understand component interactions.
+              A high-level view of how user requests flow through our AI routing system to specialized engines, all connected to one shared database for every center.
             </p>
           </div>
           
